@@ -12,7 +12,7 @@ public class Main {
 		Scanner scn = new Scanner(System.in);
 		BookDAO dao = new BookDAO(); // 조회.
 		while (run) {
-			System.out.println("\n도서 관리 시스템");
+            System.out.println("\n📚 도서 관리 시스템");
 			System.out.println("1. 도서목록");
 			System.out.println("2. 도서등록");
 			System.out.println("3. 도서수정");
