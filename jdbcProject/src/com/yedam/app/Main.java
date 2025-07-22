@@ -76,22 +76,17 @@ public class Main {
 
 	// 프로그램의 진입점. main 메소드.
 	public static void main(String[] args) {
-
 		boolean run = true; // 반복조건에 사용.
-
 		while (run) {
 			menu();
 			int menu = scn.nextInt(); // 입력값을 menu 변수에 대입(할당)
 			switch (menu) {
 			case 1: // 도서목록.
-				bookList();
-				break;
+				bookList(); break;
 			case 2: // 도서등록.
-				bookAdd();
-				break;
+				bookAdd(); break;
 			case 3: // 수정.
-				bookEdit();
-				break;
+				bookEdit(); break;
 			case 9: // 종료.
 				run = false;
 			} // end of switch.
