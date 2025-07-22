@@ -7,10 +7,13 @@ import java.util.Scanner;
 // DB결과 -> 콘솔출력.
 // 컨트롤 역할.
 public class Main {
+
 	public static void main(String[] args) {
+
 		boolean run = true; // 반복조건에 사용.
 		Scanner scn = new Scanner(System.in);
 		BookDAO dao = new BookDAO(); // 조회.
+
 		while (run) {
 			System.out.println("\n📚 도서 관리 시스템");
 			System.out.println("1. 도서목록");
@@ -54,9 +57,11 @@ public class Main {
 				break;
 			case 3: // 수정.
 				System.out.print("도서번호>> ");
-				bno = scn.nextInt(); scn.nextLine(); // 1003 엔터. 반환값이 int.
+				bno = scn.nextInt();
+				scn.nextLine(); // 1003 엔터. 반환값이 int.
 				System.out.print("도서가격>> ");
-				price = scn.nextInt(); scn.nextLine(); // 반환값이 int.
+				price = scn.nextInt();
+				scn.nextLine(); // 반환값이 int.
 
 				if (dao.update(bno, price)) {
 					System.out.println("정상 수정.");
