@@ -46,6 +46,9 @@ public class BookControl {
 	void bookList() {
 
 		int page = 1;
+		int lastPage = 1;
+
+		lastPage = (int) Math.ceil(mapper.totalCount() * 1.0 / 5);
 		while (true) {
 			List<Book> list = mapper.selectList(page);
 			// id / title / price
@@ -54,12 +57,24 @@ public class BookControl {
 			for (Book book : list) {
 				System.out.println(book.showBrief());
 			}
-			System.out.print("이전(p) 다음(n) 선택>> ");
+			System.out.println("======= " + page + "/" + lastPage + " =======");
+			if (page == 1) {
+				System.out.print("다음(n) (종료는 q) 선택>> ");
+			} else if (page < lastPage) {
+				System.out.print("이전(p) 다음(n) (종료는 q) 선택>> ");
+			} else {
+				System.out.print("이전(p) (종료는 q) 선택>> ");
+			}
+
 			String p = scn.nextLine();
 			if (p.equals("n")) {
-				page++;
+				page = page < lastPage ? page + 1 : page;
 			} else if (p.equals("p")) {
-				page--;
+				page = page > 1 ? page - 1 : page;
+			} else if (p.equals("q")) {
+				return;
+			} else {
+				System.out.println("잘못된 메뉴.");
 			}
 		}
 //		bookSearch(); // 상세조회.
