@@ -10,8 +10,13 @@ import com.yedam.mapper.BookMapper;
 import com.yedam.vo.Book;
 
 public class Main {
-	public static void main(String[] args) {
 
+	public static void main(String[] args) {
+		BookControl ctrl = new BookControl();
+		ctrl.exe();
+	}
+
+	void backup() {
 		Object obj;
 		// RunExe는 Runnable 구현하는 클래스.
 		Runnable exe = new RunExe();
@@ -23,7 +28,7 @@ public class Main {
 		// 인터페이스 - 구현클래스.
 		BookMapper mapper = sqlSession.getMapper(BookMapper.class);
 //		Book book = mapper.selectBook(1001);
-		List<Book> list = mapper.selectList();
+		List<Book> list = mapper.selectList(1);
 //		Book book = //
 //			sqlSession.selectOne("com.yedam.mapper.BookMapper.selectBook", 1001);
 //		List<Book> list = //
